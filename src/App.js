@@ -36,11 +36,11 @@ function App() {
   const AddCount1 = useCallback(() => {
     setCount1((prevCount1) => prevCount1 + 1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count1]);
+  }, []);
   const AddCount2 = useCallback(() => {
     setCount2((prevCount2) => prevCount2 + 1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count2]);
+  }, []);
 
   return (
     <AppContext.Provider
