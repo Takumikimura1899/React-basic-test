@@ -1,9 +1,10 @@
 import React, { useReducer } from 'react';
 import './App.css';
+import Memo from './components/Memo';
 // import ApiFetch from './components/ApiFetch';
 // import B from './components/B';
 // import BasicReducer from './components/BasicReducer';
-import CompB from './components/CompB';
+// import CompB from './components/CompB';
 // import Basic1 from './components/Basic1';
 // import Basic2 from './components/Basic2';
 // import BasicUseEffect from './components/BasicUseEffect';
@@ -37,8 +38,9 @@ function App() {
         {/* <ApiFetch />
         <B /> */}
         {/* <BasicReducer /> */}
-        Count {count}
-        <CompB />
+        {/* Count {count}
+        <CompB /> */}
+        <Memo />
       </div>
     </AppContext.Provider>
   );
