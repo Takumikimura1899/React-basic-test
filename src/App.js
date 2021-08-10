@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useCallback } from 'react';
 import './App.css';
-import Memo from './components/Memo';
+import CountClick from './components/CountClick';
+import CountDisplay from './components/CountDisplay';
+// import Memo from './components/Memo';
 // import ApiFetch from './components/ApiFetch';
 // import B from './components/B';
 // import BasicReducer from './components/BasicReducer';
@@ -27,6 +29,19 @@ const reducer = (currentState, action) => {
 
 function App() {
   const [count, dispatch] = useReducer(reducer, initialState);
+
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  const AddCount1 = useCallback(() => {
+    setCount1((prevCount1) => prevCount1 + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count1]);
+  const AddCount2 = useCallback(() => {
+    setCount2((prevCount2) => prevCount2 + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count2]);
+
   return (
     <AppContext.Provider
       value={{ countProvided: count, dispatchProvided: dispatch }}
@@ -40,7 +55,11 @@ function App() {
         {/* <BasicReducer /> */}
         {/* Count {count}
         <CompB /> */}
-        <Memo />
+        {/* <Memo /> */}
+        <CountDisplay name='count1' count={count1} />
+        <CountClick handleClick={AddCount1}>AddCount1</CountClick>
+        <CountDisplay name='count2' count={count2} />
+        <CountClick handleClick={AddCount2}>AddCount2</CountClick>
       </div>
     </AppContext.Provider>
   );
